@@ -2,6 +2,13 @@
 
 Serveur MCP qui expose les annonces Leboncoin à Claude via la lib [`lbc`](https://github.com/etienne-hd/lbc).
 
+## Prompt
+
+En utilisant le serveur mcp leboncoin, les indications dans @pc-fixe/pc-fixe.md et les pc déjà das @pc-fixe/pc-gaming-occasion.xlsx, fais des recherches leboncoin afin de trouver les meilleurs affaires aujourd'hui (utilise uv si tu as besoin de commande python)
+
+En utilisant le serveur mcp leboncoin, les indications dans @voiture/voiture-recherche.md et les pc déjà das @voiture/voiture-occasion.xlsx, fais des recherches leboncoin afin de trouver les meilleurs affaires aujourd'hui (utilise uv si tu as besoin de commande python)
+
+
 ## Prérequis
 
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
