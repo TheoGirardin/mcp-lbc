@@ -4,10 +4,8 @@ Serveur MCP qui expose les annonces Leboncoin à Claude via la lib [`lbc`](https
 
 ## Prompt
 
-En utilisant le serveur mcp leboncoin, les indications dans @pc-fixe/pc-fixe.md et les pc déjà das @pc-fixe/pc-gaming-occasion.xlsx, fais des recherches leboncoin afin de trouver les meilleurs affaires aujourd'hui (utilise uv si tu as besoin de commande python)
-
-En utilisant le serveur mcp leboncoin, les indications dans @voiture/voiture-recherche.md et les pc déjà das @voiture/voiture-occasion.xlsx, fais des recherches leboncoin afin de trouver les meilleurs affaires aujourd'hui (utilise uv si tu as besoin de commande python)
-
+En utilisant le serveur mcp leboncoin, les indications dans @pc-fixe/pc-fixe.md, fais des recherches leboncoin afin de trouver les meilleurs affaires 
+En plus des informations que tu as déjà, j'aimerai que le PC ait une carte graphique haut de gamme (type RX 7900 XTX, RX 9070 XT, RX 6900 XT, ...), même si le reste du PC est beaucoup plus bas de gamme (upgradedable)
 
 ## Prérequis
 
@@ -29,7 +27,7 @@ uv sync
 | `search_ads` | Recherche avec filtres (texte, catégorie, région, prix, pagination) |
 | `get_ad_detail` | Détail complet d'une annonce par ID |
 
-> **Rate limit** : `search_ads` est limité à **10 appels/heure** côté serveur pour éviter le blocage DataDome. Au-delà, le tool retourne une erreur avec le temps d'attente restant.
+> **Rate limit** : `search_ads` est limité à **10 appels/heure** côté serveur pour éviter le blocage DataDome. Au-delà, le tool retourne une erreur avec le temps d'attente restant. Voir [`AGENTS.md`](./AGENTS.md) pour les règles d'usage côté agent.
 
 ## Intégration Claude Code
 
@@ -55,19 +53,6 @@ Ajouter dans `claude_desktop_config.json` :
     }
   }
 }
-```
-
-## Proxy résidentiel (si IP datacenter)
-
-Dans `lbc_mcp_server.py`, remplacer la ligne `_client = Client(...)` par :
-
-```python
-from lbc.model.proxy import Proxy
-_client = Client(
-    impersonate="safari18_4_ios",
-    max_retries=2,
-    proxy=Proxy(url="http://user:pass@host:port"),
-)
 ```
 
 ## Tests
